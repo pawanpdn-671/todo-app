@@ -1,0 +1,516 @@
+@import url('https://fonts.googleapis.com/css2?family=Just+Another+Hand&family=Nunito:wght@400;600&family=Roboto:ital,wght@0,500;1,700&display=swap');
+
+* {
+   margin: 0;
+   padding: 0;
+   box-sizing: border-box;
+}
+
+html {
+   font-family: 'Nunito', sans-serif;
+   color: rgb(53, 51, 51);
+}
+
+/* App */
+
+.App {
+   display: flex;
+   width: 100vw;
+   height: 100vh;
+   overflow: hidden;
+}
+
+.Sidebar {
+   background-color: rgb(250, 247, 247);
+   width: 15%;
+   height: 100%;
+}
+
+.Main {
+   width: 85%;
+   height: 100%;
+   background-image: url(./img/background.jpg);
+   background-repeat: no-repeat;
+   background-size: cover;
+   position: relative;
+}
+
+.User {
+   display: flex;
+   align-items: center;
+   justify-content: space-between;
+   padding: 1rem;
+   border-bottom: 1px solid rgb(220, 220, 220);
+}
+
+.User .logo{
+   display: flex;
+   align-items: center;
+}
+
+.logo img{
+   width: 2rem;
+}
+.logo p{
+   font-family: 'Roboto', sans-serif;
+   font-weight: 500;
+   font-size: 1.2rem;
+   color: rgb(55, 126, 220);
+   margin-left: .5rem;
+}
+.User .info a{
+   text-decoration: none;
+   font-weight: 600;
+   color: rgb(228, 19, 19);
+}
+
+/* Add New Todo */
+
+.add-new-todo{
+   border-bottom: 1px solid rgb(220, 220, 220);
+   padding: 1rem 0;
+}
+.add-new-todo .btn-container{
+   width: 100%;
+   display: flex;
+   justify-content: center;
+}
+.btn-container button{
+   padding: 0.8rem 0;
+   width: 50%;
+   border: none;
+   color: white;
+   background-color: rgb(55, 126, 220);
+   font-size: 1rem;
+   font-weight: 400;
+   border-radius: 0.2rem;
+   cursor: pointer;
+   transition: all 0.1s ease-in-out;
+}
+.btn-container button:hover {
+   color: rgb(232, 231, 231);
+   background-color: rgb(25, 110, 221);
+   transform: scale(0.98);
+}
+
+/* MODAL */
+.Modal{
+   position: fixed;
+   top: 0;
+   left: 0;
+   width: 100vw;
+   height: 100vh;
+   background-color: rgba(0,0,0,0.6);
+   z-index: 10;
+}
+.Modal .container{
+   position: absolute;
+   top: 25%;
+   left: 50%;
+   transform: translate(-50%, -25%);
+   background-color: white;
+   border-radius: 0.3rem;
+}
+/* Add new Todo */
+.add-new-todo .form-container{
+   width: 25vw;
+}
+.add-new-todo .container .todo-form{
+   padding: 2rem;
+}
+/* Todo Form */
+
+.todo-form{
+   width: 100%;
+}
+
+.todo-form .text input{
+   width: 100%;
+   margin: 1.5rem 0;
+   padding-bottom: 0.2rem;
+   border: none;
+   font-size: 1.2rem;
+}
+.todo-form .text input:focus {
+   outline: none;
+   border-bottom: 1px solid rgb(176, 205, 243);
+}
+.todo-form .text h3{
+   font-family: 'Roboto', sans-serif;
+   font-weight: 500;
+   color: rgb(55, 126, 220);
+   font-size: 1.3rem;
+}
+.todo-form .remind{
+   display: flex;
+   align-items: center;
+   padding: 0.5rem 0;
+}
+.todo-form p{
+   margin-left: 0.5rem;
+}
+.todo-form .title{
+   display: flex;
+   align-items: center;
+   margin-bottom: 0.3rem;
+}
+.todo-form .pick-day{
+   padding: 1rem;
+}
+.todo-form .pick-time{
+   padding: 1rem;
+}
+.todo-form .pick-project{
+   padding: 1rem;
+}
+.todo-form .pick-project .projects{
+   display: flex;
+   flex-wrap: wrap;
+   padding: 1rem 1rem 0 1rem;
+}
+.todo-form .pick-project .projects .project{
+   border: 1px solid rgb(180, 180, 180);
+   border-radius: 0.2rem;
+   padding: 0.3rem;
+   margin: 0.5rem;
+   cursor: pointer;
+}
+.todo-form .pick-project .projects .active{
+   background-color: rgb(55, 126, 220);
+   color: white;
+   border: none;
+}
+.todo-form .cancel{
+   position: absolute;
+   top: 0.5rem;
+   right: 0.5rem;
+   cursor: pointer;
+}
+.todo-form .cancel:hover{
+   color: rgb(240, 14, 14);
+}
+.todo-form .confirm{
+   position: absolute;
+   bottom: 0;
+   left: 0;
+   width: 100%;
+}
+.todo-form .confirm button {
+   width: 100%;
+   height: 2.5rem;
+   background-color: rgb(55, 126, 220);
+   color: white;
+   font-family: 'Nunito', sans-serif;
+   font-weight: 600;
+   font-size: 1rem;
+   border: none;
+   border-bottom-left-radius: 0.3rem;
+   border-bottom-right-radius: 0.3rem;
+   cursor: pointer;
+   transition: all 0.1s ease-in-out;
+}
+.todo-form .confirm button:hover{
+   color: rgb(232, 231, 231);
+   background-color: rgb(21, 104, 213);
+}
+
+/* Calender Item */
+
+.Calendar {
+   margin-top: 0.5rem;
+   padding: 1rem;
+   width: 100%;
+   border-bottom: 1px solid rgb(220, 220, 220);
+}
+.Calendar .header{
+   display: flex;
+   align-items: center;
+   justify-content: space-between;
+}
+.Calendar .header .title{
+   display: flex;
+   align-items: center;
+}
+.header .title p{
+   margin-left: 0.5rem;
+   font-size: 1.1rem;
+   font-weight: 600;
+}
+.Calendar .header .btns span{
+   border-radius: 50%;
+   cursor: pointer;
+   width: 2rem;
+   height: 2rem;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+}
+.Calendar .header .btns span:hover {
+   background-color: #ebebeb;
+   transition: background 0.2s ease-in-out;
+}
+
+.Calendar .items{
+   padding: 0 0.5rem;
+}
+.Calendar .items .item{
+   padding: 0.2rem 1rem;
+   margin: 0.3rem;
+   font-size: 1rem;
+   cursor: pointer;
+}
+
+/* Projects Information */
+
+.Projects {
+   padding: 1rem;
+   border-bottom: 1px solid rgb(220, 220, 220);
+}
+.Projects .header {
+   display: flex;
+   align-items: center;
+   justify-content: space-between;
+}
+.Projects .header .title{
+   display: flex;
+   align-items: center;
+}
+.Projects .header .title p{
+   margin-left: 0.5rem;
+   font-size: 1.1rem;
+   font-weight: 600;
+}
+.Projects .header .btns {
+   display: flex;
+   align-items: center;
+}
+.Projects .header .btns span{
+   border-radius: 50%;
+   cursor: pointer;
+   width: 2rem;
+   height: 2rem;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   margin-right: 0.2rem;
+}
+.Projects .header .btns span:hover {
+   background-color: #ebebeb;
+   transition: background 0.2s ease-in-out;
+}
+.Projects .items {
+   padding: 0.5rem;
+}
+
+/* Project from Projects */
+
+.Project {
+   display: flex;
+   align-items: center;
+   padding: 0.25rem 1rem;
+   margin: 0.3rem;
+   font-size: 1rem;
+   position: relative;
+}
+.Project .name{
+   cursor: pointer;
+}
+.Project .btns{
+   display: flex;
+   align-items: center;
+}
+.Project .btns .total-todos{
+   position: absolute;
+   right: 0;
+   background-color: #ebebeb;
+   width: 1.5rem;
+   height: 1.5rem;
+   border-radius: 50%;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   font-size: 0.9rem;
+}
+.Project .btns .edit-delete{
+   position: absolute;
+   right: 0;
+   display: flex;
+}
+.Project .btns .edit-delete span {
+   border-radius: 50%;
+   cursor: pointer;
+   width: 1.5rem;
+   height: 1.5rem;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   margin-left: 0.5rem;
+   transition: background 0.2s ease-in-out;
+}
+.Project .btns .edit-delete span.edit:hover {
+   background-color: #acffac;
+}
+.Project .btns .edit-delete span.delete:hover {
+   background-color: #ffacac;
+}
+
+/* Add New Project */
+/* ProjectForm */
+.project-form{
+   background-color: white;
+   padding: 1.5rem;
+   border-radius: 0.2rem;
+   position: relative;
+   padding-bottom: 4rem;
+}
+.project-form h3{
+   color: rgb(55, 126, 220);
+}
+.project-form input{
+   width: 100%;
+   height: 2rem;
+   border: none;
+   font-size: 1.1rem;
+   margin: 0.5rem 0;
+   color: rgb(53, 51, 51);
+}
+.project-form input:focus{
+   outline: none;
+   border-bottom: 1px solid rgb(55, 126, 220);
+}
+.project-form button{
+   position: absolute;
+   bottom: 0;
+   width: 50%;
+   height: 2rem;
+   border: none;
+   font-family: 'Nunito', sans-serif;
+   font-weight: 600;
+   font-size: 1rem;
+   cursor: pointer;
+   transition: background 0.1s ease-in-out;
+}
+.project-form button.cancel{
+   left: 0;
+   background-color: rgb(200, 200, 200);
+}
+.project-form button.confirm{
+   right: 0;
+   background-color: rgb(55, 126, 220);
+   color: white;
+}
+.project-form button.confirm:hover{
+   background-color: rgb(21, 104, 213);
+}
+.project-form button.cancel:hover{
+   background-color: rgb(170, 170, 170);
+}
+
+/* TODOS Component */
+
+.Todos{
+   width: 30%;
+   background-color: white;
+   height: 80%;
+   position: absolute;
+   bottom: 2.5rem;
+   left: 2.5rem;
+   border-radius: 0.3rem;
+   opacity: 0.9;
+   padding: 0 1rem 1rem 1rem;
+   overflow-y: auto;
+}
+.Todos::-webkit-scrollbar{
+   display: none;
+}
+.Todos .selected-project{
+   margin: 1rem 0;
+   text-transform: uppercase;
+   font-size: 1.2rem;
+   font-weight: 600;
+   padding-bottom: 0.1rem;
+   border-bottom: 1px solid rgb(220, 220, 220);
+}
+
+/* Todo */
+.Todo{
+   padding: 0.5rem;
+}
+.Todo .todo-container{
+   display: flex;
+   align-items: center;
+}
+.Todo .todo-container .check-todo{
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   width: 1rem;
+}
+.Todo .todo-container span{
+   cursor: pointer;
+}
+.Todo .todo-container .text {
+   position: relative;
+   flex: 1;
+   margin: 0 0.7rem;
+}
+.Todo .todo-container .text span{
+   font-size: 0.8rem;
+   color: rgb(170, 170, 170);
+}
+.Todo .todo-container .text p{
+   cursor: pointer;
+}
+.Todo .todo-container .text .line{
+   height: 1px;
+   background-color: rgb(170, 170, 170);
+   position: absolute;
+   top: 25%;
+   left: 0;
+   width: 0;
+   transition: width 0.3s linear;
+}
+.Todo .todo-container .text .line-through{
+   width: 100%;
+}
+.Todo .todo-container .add-next-day{
+   margin-right: 1rem;
+}
+
+/* Edit Todo */
+
+.EditTodo{
+   position: absolute;
+   left: calc(30% + 5rem);
+   height: 80%;
+   bottom: 2.5rem;
+   background-color: white;
+   opacity: 0.9;
+   width: 30%;
+   padding: 0 1rem 1rem 1rem;
+   border-radius: 0.3rem;
+}
+.EditTodo .header{
+   margin-top: 1rem;
+   text-transform: uppercase;
+   font-size: 1.2rem;
+   font-weight: 600;
+   padding-bottom: 0.1rem;
+   border-bottom: 1px solid rgb(220, 220, 220);
+}
+
+/* NEXT 7 DAYS  */
+
+.NextDays {
+   overflow: hidden;
+}
+.NextDays .day{
+   display: flex;
+}
+.NextDays .day .name{
+   font-weight: 600;
+   font-size: 1.1rem;
+}
+.NextDays .day .total-todos{
+   margin-left: 0.5rem;
+}
